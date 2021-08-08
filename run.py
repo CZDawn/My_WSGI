@@ -1,11 +1,10 @@
 from wsgiref.simple_server import make_server
-from own_framework.main import Framework
-from urls import routes
+from my_own_framework.main import Framework
+from views import routes
 
-# create object of WSGI-application
+# Создаем объект WSGI-приложения
 application = Framework(routes)
 
 with make_server('', 8080, application) as httpd:
-    print('Run on the port 8080...')
+    print("Запуск на порту 8080...")
     httpd.serve_forever()
-
